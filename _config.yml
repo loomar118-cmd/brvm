@@ -1,0 +1,6 @@
+title: Bourse & Investissement BRVM
+description: Analyses, méthodes et point quotidien du marché boursier régional (BRVM).
+url: "https://www.investirbrvm.com"
+lang: fr
+timezone: Africa/Abidjan
+permalink: /marche/:year-:month-:day/
