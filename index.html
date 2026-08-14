@@ -1,220 +1,409 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bourse et Investissement BRVM — comprendre le marché régional</title>
-<meta name="description" content="Point de séance quotidien de la BRVM, analyses des sociétés cotées et pédagogie boursière pour les investisseurs de la zone UEMOA. Canal Telegram gratuit.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══════════════════════════════════════════════════════════════
+     ⚠️  SEULE CHOSE À MODIFIER SI VOUS CHANGEZ DE NOM DE DOMAINE :
+     remplacez partout  www.investirbrvm.com  par votre domaine.
+     (Utilisez Ctrl+F / Cmd+F pour les trouver — il y en a 5.)
+     ══════════════════════════════════════════════════════════════ -->
+
+<title>Canal Telegram BRVM — Analyses de la Bourse Régionale (Sénégal, UEMOA)</title>
+<meta name="description" content="Canal Telegram gratuit consacré à la BRVM : point quotidien du marché, analyses techniques, décryptages des sociétés cotées et méthodes pour investir depuis le Sénégal et l'UEMOA.">
+
+<link rel="canonical" href="https://www.investirbrvm.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Bourse et Investissement BRVM">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bourse et Investissement BRVM">
+<meta property="og:title" content="Canal Telegram BRVM — Bourse et Investissement">
+<meta property="og:description" content="Le point quotidien du marché boursier régional, les analyses et les méthodes pour investir à la BRVM depuis l'Afrique de l'Ouest.">
+<meta property="og:url" content="https://www.investirbrvm.com/">
+<meta property="og:locale" content="fr_SN">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.investirbrvm.com/#site",
+      "name": "Bourse et Investissement BRVM",
+      "url": "https://www.investirbrvm.com/",
+      "inLanguage": "fr",
+      "description": "Canal Telegram d'analyses sur la Bourse Régionale des Valeurs Mobilières (BRVM), marché boursier de l'UEMOA.",
+      "sameAs": ["https://t.me/investirBRVM"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le canal Telegram BRVM est-il gratuit ?",
+          "acceptedAnswer": {"@type":"Answer","text":"Oui. L'abonnement au canal est entièrement gratuit. Seul le guide de l'investisseur, document séparé et facultatif, est payant."}
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il beaucoup d'argent pour investir à la BRVM ?",
+          "acceptedAnswer": {"@type":"Answer","text":"Non. Les actions cotées à la BRVM se négocient à l'unité et une part importante d'entre elles s'échange à quelques milliers de francs CFA. Le montant minimum dépend surtout des frais appliqués par votre SGI."}
+        },
+        {
+          "@type": "Question",
+          "name": "Comment ouvrir un compte titres à la BRVM depuis le Sénégal ?",
+          "acceptedAnswer": {"@type":"Answer","text":"En passant par une Société de Gestion et d'Intermédiation (SGI) agréée. C'est le seul intermédiaire habilité à transmettre vos ordres au marché. L'ouverture demande une pièce d'identité et un justificatif de domicile."}
+        },
+        {
+          "@type": "Question",
+          "name": "Le canal donne-t-il des conseils d'achat ou de vente ?",
+          "acceptedAnswer": {"@type":"Answer","text":"Non. Le canal publie des données de marché, des analyses et des méthodes à visée pédagogique. Il ne fournit aucune recommandation personnalisée et ne constitue pas un service de conseil en investissement."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
-  :root{
-    --marine:#0C1854;
-    --marine-fonce:#070F35;
-    --or:#F0B418;
-    --gris-bleu:#8484A8;
-    --papier:#F5F3EE;
-    --trait:rgba(132,132,168,.28);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--marine);
-    color:var(--papier);
-    font-family:'Inter',system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .enveloppe{max-width:960px;margin:0 auto;padding:0 24px}
+:root{
+  --encre:#12263F;
+  --indigo:#1B3A5C;
+  --or:#B8862B;
+  --vert:#157A5C;
+  --papier:#FAF7F2;
+  --papier-2:#F2EDE4;
+  --craie:#FFFFFF;
+  --gris:#5A6B7C;
+  --trait:rgba(18,38,63,.14);
+}
 
-  /* ---------- Bandeau de cotation (élément signature) ---------- */
-  .cote{
-    border-bottom:1px solid var(--trait);
-    background:var(--marine-fonce);
-    overflow:hidden;
-    white-space:nowrap;
-  }
-  .cote__piste{
-    display:inline-block;
-    padding:10px 0;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:.18em;
-    color:var(--gris-bleu);
-    animation:defile 38s linear infinite;
-  }
-  .cote__piste span{padding:0 18px}
-  .cote__piste b{color:var(--or);font-weight:500}
-  @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){
-    .cote__piste{animation:none}
-  }
+*{box-sizing:border-box;margin:0;padding:0}
 
-  /* ---------- En-tête ---------- */
-  header{padding:72px 0 64px}
-  .surtitre{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--or);
-    margin-bottom:22px;
-  }
-  h1{
-    font-family:'Fraunces',Georgia,serif;
-    font-weight:600;
-    font-size:clamp(38px,6.5vw,66px);
-    line-height:1.04;
-    letter-spacing:-.02em;
-    max-width:16ch;
-  }
-  h1 em{font-style:italic;color:var(--or)}
-  .chapeau{
-    margin-top:24px;
-    max-width:56ch;
-    color:#D9D7E6;
-    font-size:clamp(17px,2.2vw,20px);
-  }
-  .actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-  .bouton{
-    display:inline-block;
-    background:var(--or);
-    color:var(--marine);
-    font-weight:600;
-    font-size:17px;
-    text-decoration:none;
-    padding:16px 30px;
-    border-radius:2px;
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .bouton:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px rgba(240,180,24,.35)}
-  .bouton:focus-visible{outline:3px solid var(--papier);outline-offset:3px}
-  .mention-gratuit{font-size:14px;color:var(--gris-bleu)}
+html{scroll-behavior:smooth}
 
-  /* ---------- Sections ---------- */
-  section{padding:56px 0;border-top:1px solid var(--trait)}
-  h2{
-    font-family:'Fraunces',Georgia,serif;
-    font-weight:600;
-    font-size:clamp(26px,3.6vw,34px);
-    letter-spacing:-.01em;
-    margin-bottom:28px;
-  }
-  .grille{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .bloc h3{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--or);
-    margin-bottom:10px;
-    font-weight:500;
-  }
-  .bloc p{color:#CFCDE0;font-size:16px}
-  ul.liste{list-style:none;max-width:62ch}
-  ul.liste li{
-    padding:14px 0 14px 26px;
-    border-bottom:1px solid var(--trait);
-    position:relative;
-    color:#CFCDE0;
-  }
-  ul.liste li::before{
-    content:"—";
-    position:absolute;
-    left:0;
-    color:var(--or);
-  }
+body{
+  background:var(--papier);
+  color:var(--encre);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
 
-  /* ---------- Encart guide ---------- */
-  .encart{
-    background:var(--marine-fonce);
-    border-left:3px solid var(--or);
-    padding:34px;
-  }
-  .encart h2{margin-bottom:14px}
-  .encart p{color:#CFCDE0;max-width:54ch}
-  .encart .bouton{margin-top:24px}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
 
-  /* ---------- Pied de page ---------- */
-  footer{
-    padding:44px 0 64px;
-    border-top:1px solid var(--trait);
-    color:var(--gris-bleu);
-    font-size:14px;
-  }
-  footer p{max-width:70ch;margin-bottom:10px}
+/* ── Bandeau de cote (élément signature) ───────────────── */
+.cote{
+  background:var(--encre);
+  color:var(--papier);
+  overflow:hidden;
+  border-bottom:3px solid var(--or);
+}
+.cote-inner{
+  display:flex;
+  width:max-content;
+  animation:defile 42s linear infinite;
+}
+.cote span{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  padding:11px 22px;
+  white-space:nowrap;
+  opacity:.82;
+}
+.cote span::after{content:"·";margin-left:22px;color:var(--or);opacity:.7}
+@keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .cote-inner{animation:none;width:100%;overflow-x:auto}
+}
+
+/* ── En-tête ───────────────────────────────────────────── */
+.marque{
+  display:flex;align-items:baseline;gap:10px;
+  padding:26px 0 0;
+}
+.marque b{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:800;font-size:19px;letter-spacing:-.02em;
+}
+.marque em{
+  font-family:"IBM Plex Mono",monospace;font-style:normal;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);
+}
+
+/* ── Hero ──────────────────────────────────────────────── */
+.hero{padding:46px 0 60px;border-bottom:1px solid var(--trait)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--or);margin-bottom:20px;
+}
+h1{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:800;
+  font-size:clamp(2.15rem,6.2vw,3.7rem);
+  line-height:1.04;
+  letter-spacing:-.035em;
+  max-width:15ch;
+  margin-bottom:22px;
+}
+h1 i{font-style:normal;color:var(--or)}
+.chapo{font-size:1.16rem;max-width:56ch;color:#28405C}
+
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center}
+.btn{
+  display:inline-block;
+  background:var(--encre);color:var(--papier);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:700;font-size:16px;letter-spacing:-.01em;
+  padding:15px 30px;border-radius:2px;text-decoration:none;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--indigo);transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.lien-sec{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+  letter-spacing:.06em;color:var(--gris);
+  text-decoration:none;border-bottom:1px solid var(--trait);
+}
+.lien-sec:hover{color:var(--encre);border-color:var(--or)}
+
+/* ── Sections ──────────────────────────────────────────── */
+section{padding:58px 0;border-bottom:1px solid var(--trait)}
+.rubrique{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--or);margin-bottom:14px;
+}
+h2{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:700;font-size:clamp(1.6rem,3.6vw,2.25rem);
+  letter-spacing:-.028em;line-height:1.14;margin-bottom:20px;max-width:22ch;
+}
+h3{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:700;font-size:1.06rem;letter-spacing:-.015em;margin-bottom:7px;
+}
+p{max-width:64ch;margin-bottom:16px}
+p:last-child{margin-bottom:0}
+
+/* ── Grille programme ──────────────────────────────────── */
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:2px;background:var(--trait);margin-top:30px}
+.carte{background:var(--papier);padding:26px 24px}
+.carte .tag{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  letter-spacing:.16em;color:var(--vert);text-transform:uppercase;
+  display:block;margin-bottom:12px;
+}
+.carte p{font-size:15.5px;color:var(--gris);margin:0}
+
+/* ── Étapes ────────────────────────────────────────────── */
+ol.etapes{list-style:none;counter-reset:e;margin-top:28px}
+ol.etapes li{
+  counter-increment:e;
+  display:grid;grid-template-columns:52px 1fr;gap:18px;
+  padding:20px 0;border-top:1px solid var(--trait);
+}
+ol.etapes li::before{
+  content:counter(e,decimal-leading-zero);
+  font-family:"IBM Plex Mono",monospace;font-size:13px;
+  color:var(--or);padding-top:3px;
+}
+ol.etapes p{font-size:15.5px;color:var(--gris)}
+
+/* ── FAQ ───────────────────────────────────────────────── */
+details{border-top:1px solid var(--trait);padding:16px 0}
+details:last-of-type{border-bottom:1px solid var(--trait)}
+summary{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:700;font-size:1.02rem;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--or);font-size:19px}
+details[open] summary::after{content:"−"}
+summary:focus-visible{outline:2px solid var(--or);outline-offset:4px}
+details p{margin-top:12px;font-size:15.5px;color:var(--gris)}
+
+/* ── Appel final ───────────────────────────────────────── */
+.final{background:var(--encre);color:var(--papier);border:none;margin-top:0}
+.final h2{color:var(--papier)}
+.final p{color:#C3D0DE}
+.final .rubrique{color:var(--or)}
+.final .btn{background:var(--or);color:var(--encre)}
+.final .btn:hover{background:#D19B33}
+
+/* ── Pied ──────────────────────────────────────────────── */
+footer{padding:34px 0 50px;font-size:13px;color:var(--gris)}
+footer p{max-width:72ch;margin-bottom:10px}
+footer a{color:var(--gris)}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  section{padding:44px 0}
+  .actions{gap:16px}
+  .btn{width:100%;text-align:center}
+}
 </style>
 </head>
 <body>
 
+<!-- Bandeau : tickers des sociétés cotées (aucun cours affiché) -->
 <div class="cote" aria-hidden="true">
-  <div class="cote__piste">
-    <span><b>SNTS</b> Sonatel</span><span><b>ETIT</b> Ecobank</span><span><b>BOAB</b> BOA Bénin</span><span><b>SGBC</b> Société Générale CI</span><span><b>PALC</b> Palm CI</span><span><b>SPHC</b> SapH</span><span><b>ONTBF</b> Onatel</span><span><b>CIEC</b> CIE</span><span><b>SDSC</b> Sodeci</span><span><b>NEIC</b> Nei-Ceda</span><span><b>TTLC</b> Total CI</span><span><b>BICC</b> Bicici</span>
-    <span><b>SNTS</b> Sonatel</span><span><b>ETIT</b> Ecobank</span><span><b>BOAB</b> BOA Bénin</span><span><b>SGBC</b> Société Générale CI</span><span><b>PALC</b> Palm CI</span><span><b>SPHC</b> SapH</span><span><b>ONTBF</b> Onatel</span><span><b>CIEC</b> CIE</span><span><b>SDSC</b> Sodeci</span><span><b>NEIC</b> Nei-Ceda</span><span><b>TTLC</b> Total CI</span><span><b>BICC</b> Bicici</span>
+  <div class="cote-inner">
+    <span>SNTS TÉLÉCOM</span><span>SGBS BANQUE</span><span>BOAS BANQUE</span><span>ETIT FINANCE</span><span>ONTBF MINES</span><span>CIEC ÉNERGIE</span><span>SDCC AGRO</span><span>PALC AGRO</span><span>NEIC DISTRIBUTION</span><span>BICC BANQUE</span><span>TTLC DISTRIBUTION</span><span>CABC INDUSTRIE</span>
+    <span>SNTS TÉLÉCOM</span><span>SGBS BANQUE</span><span>BOAS BANQUE</span><span>ETIT FINANCE</span><span>ONTBF MINES</span><span>CIEC ÉNERGIE</span><span>SDCC AGRO</span><span>PALC AGRO</span><span>NEIC DISTRIBUTION</span><span>BICC BANQUE</span><span>TTLC DISTRIBUTION</span><span>CABC INDUSTRIE</span>
   </div>
 </div>
 
-<header>
-  <div class="enveloppe">
-    <p class="surtitre">Canal Telegram · Zone UEMOA</p>
-    <h1>La BRVM, expliquée <em>séance après séance</em>.</h1>
-    <p class="chapeau">Chaque jour de cotation, le point de marché à partir du Bulletin Officiel de la Cote, l'analyse des sociétés cotées et les bases pour investir sans deviner. Écrit pour ceux qui débutent, utile à ceux qui suivent déjà le marché.</p>
+<div class="wrap">
+  <div class="marque">
+    <b>Bourse &amp; Investissement BRVM</b>
+    <em>Dakar · UEMOA</em>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Canal Telegram · Marché régional</p>
+    <h1>La BRVM, <i>décryptée</i> chaque jour de cotation.</h1>
+    <p class="chapo">Un canal Telegram gratuit pour suivre la Bourse Régionale des Valeurs Mobilières sans jargon : le point du marché après clôture, les analyses des valeurs les plus échangées, et les méthodes pour investir depuis le Sénégal et l'ensemble de l'UEMOA.</p>
     <div class="actions">
-      <a class="bouton" href="https://t.me/investirBRVM">Rejoindre le canal Telegram</a>
-      <span class="mention-gratuit">Gratuit · Aucun signal de trading</span>
+      <a class="btn" href="https://t.me/investirBRVM">Rejoindre le canal Telegram</a>
+      <a class="lien-sec" href="#brvm">C'est quoi, la BRVM ?</a>
     </div>
   </div>
 </header>
 
 <section>
-  <div class="enveloppe">
-    <h2>Ce qui est publié</h2>
+  <div class="wrap">
+    <p class="rubrique">Au programme</p>
+    <h2>Ce que vous recevez sur le canal</h2>
+    <p>Les publications suivent le calendrier du marché : rien les jours de fermeture, l'essentiel les jours de cotation.</p>
     <div class="grille">
-      <div class="bloc">
-        <h3>Point de séance</h3>
-        <p>Évolution du BRVM Composite, plus fortes hausses et baisses, volumes échangés. Les chiffres proviennent du Bulletin Officiel de la Cote, jamais d'une estimation.</p>
+      <div class="carte">
+        <span class="tag">Chaque soir</span>
+        <h3>Le point de clôture</h3>
+        <p>Les indices, les plus fortes variations et les volumes de la séance, tirés du Bulletin Officiel de la Cote.</p>
       </div>
-      <div class="bloc">
-        <h3>Analyse de sociétés</h3>
-        <p>Lecture des états financiers publiés : chiffre d'affaires, résultat net, dividende, PER, rendement. Ce que les chiffres disent, et ce qu'ils ne disent pas.</p>
+      <div class="carte">
+        <span class="tag">Chaque semaine</span>
+        <h3>L'analyse technique</h3>
+        <p>Lecture des tendances sur les valeurs les plus liquides, à partir de l'historique réel des cours.</p>
       </div>
-      <div class="bloc">
-        <h3>Pédagogie</h3>
-        <p>Comment ouvrir un compte titres auprès d'une SGI, passer un ordre à cours limité, lire un carnet d'ordres, comprendre la liquidité d'un titre.</p>
+      <div class="carte">
+        <span class="tag">Au fil de l'actu</span>
+        <h3>Le décryptage</h3>
+        <p>Résultats, dividendes, augmentations de capital : ce que l'actualité des sociétés cotées veut dire concrètement.</p>
+      </div>
+      <div class="carte">
+        <span class="tag">En continu</span>
+        <h3>La pédagogie</h3>
+        <p>Ordre au marché, PER, rendement, SGI, compte titres : le vocabulaire de la bourse expliqué simplement.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="enveloppe">
-    <h2>À qui cela s'adresse</h2>
-    <ul class="liste">
-      <li>Vous vivez au Sénégal, en Côte d'Ivoire, au Bénin, au Togo, au Burkina Faso, au Mali ou au Niger, et vous voulez comprendre le marché financier de votre région avant d'y placer votre épargne.</li>
-      <li>Vous détenez déjà quelques actions et vous aimeriez savoir comment les évaluer autrement qu'au bouche-à-oreille.</li>
-      <li>Vous faites partie de la diaspora et cherchez un placement en zone franc, documenté et suivi dans le temps.</li>
-      <li>Vous n'attendez ni promesse de gain ni « signal » : seulement de l'information vérifiable et une méthode.</li>
-    </ul>
+<section id="brvm">
+  <div class="wrap">
+    <p class="rubrique">Repères</p>
+    <h2>Qu'est-ce que la BRVM ?</h2>
+    <p>La Bourse Régionale des Valeurs Mobilières est la place financière commune aux huit pays de l'Union Économique et Monétaire Ouest-Africaine : Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau, Mali, Niger, Sénégal et Togo. Son siège est à Abidjan, et chaque État membre dispose d'une antenne nationale.</p>
+    <p>Sa particularité : un marché unique, une seule monnaie, un seul carnet d'ordres. Un épargnant de Dakar et un épargnant de Ouagadougou achètent exactement la même action, au même prix, au même moment. Les sociétés cotées couvrent les banques, les télécommunications, l'agro-industrie, la distribution et l'énergie de la région.</p>
+    <p>Pour un particulier ouest-africain, c'est la façon la plus directe de devenir actionnaire d'entreprises qu'il connaît déjà — celles dont il utilise les services tous les jours. Encore faut-il savoir lire le marché : c'est précisément le rôle de ce canal.</p>
   </div>
 </section>
 
 <section>
-  <div class="enveloppe">
-    <div class="encart">
-      <h2>Le Guide de l'investisseur BRVM</h2>
-      <p>Un document de 34 pages qui reprend l'essentiel : fonctionnement du marché régional, lecture des états financiers, ratios de valorisation, exécution des ordres et psychologie de l'investisseur. Édition 2026, mise à jour 2027 offerte.</p>
-      <a class="bouton" href="https://t.me/GuideBRVMbot?start=guide">Découvrir le guide</a>
+  <div class="wrap">
+    <p class="rubrique">Mode d'emploi</p>
+    <h2>Comment investir à la BRVM depuis le Sénégal</h2>
+    <p>Le parcours est le même pour tous les pays de l'Union. Il tient en quatre étapes, dans cet ordre.</p>
+    <ol class="etapes">
+      <li>
+        <div>
+          <h3>Choisir une SGI</h3>
+          <p>Une Société de Gestion et d'Intermédiation agréée est le seul intermédiaire habilité à transmettre vos ordres au marché. Plusieurs sont installées à Dakar. Comparez leurs frais avant de choisir.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Ouvrir un compte titres</h3>
+          <p>Pièce d'identité, justificatif de domicile, formulaire signé. Le compte titres héberge vos actions, le compte espèces associé héberge l'argent qui sert à les acheter.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Passer votre premier ordre</h3>
+          <p>Vous indiquez la valeur, la quantité et le type d'ordre. L'ordre à cours limité protège votre prix ; l'ordre au marché privilégie l'exécution. Sur un marché peu liquide, la différence compte.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Suivre et arbitrer</h3>
+          <p>Un portefeuille se surveille : résultats publiés, dividendes détachés, évolution du secteur. C'est le travail de fond, et c'est là que le canal vous fait gagner du temps.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="rubrique">Questions fréquentes</p>
+    <h2>Ce qu'on nous demande le plus</h2>
+
+    <details>
+      <summary>Le canal Telegram est-il gratuit ?</summary>
+      <p>Oui, entièrement. L'abonnement, les publications quotidiennes et le groupe de discussion sont gratuits. Seul le guide de l'investisseur BRVM, document séparé et facultatif, est payant.</p>
+    </details>
+
+    <details>
+      <summary>Faut-il beaucoup d'argent pour commencer ?</summary>
+      <p>Non. Les actions de la BRVM se négocient à l'unité, et une bonne partie de la cote s'échange à quelques milliers de francs CFA l'action. Ce qui fixe réellement le seuil d'entrée, ce sont les frais de votre SGI : en dessous d'un certain montant, ils pèsent trop lourd sur l'opération.</p>
+    </details>
+
+    <details>
+      <summary>Peut-on suivre le canal depuis un autre pays de l'UEMOA ?</summary>
+      <p>Oui. La BRVM est une bourse régionale : les analyses publiées valent aussi bien à Abidjan, Cotonou, Bamako, Lomé, Ouagadougou, Niamey ou Bissau. Seul votre choix de SGI change.</p>
+    </details>
+
+    <details>
+      <summary>Donnez-vous des conseils d'achat ou de vente ?</summary>
+      <p>Non. Le canal publie des données de marché, des analyses et des méthodes, dans un but pédagogique. Il ne délivre aucune recommandation personnalisée et ne constitue pas un service de conseil en investissement. Vos décisions restent les vôtres.</p>
+    </details>
+
+    <details>
+      <summary>D'où viennent les chiffres publiés ?</summary>
+      <p>Du Bulletin Officiel de la Cote de la BRVM et de l'historique des cours de séance. Aucun chiffre n'est estimé ni reconstitué : quand la donnée n'est pas disponible, elle n'est pas publiée.</p>
+    </details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <p class="rubrique">Rejoindre</p>
+    <h2>Le marché ouvre demain. Vous serez informé.</h2>
+    <p>Un canal, pas un groupe bavard : quelques publications par semaine, toutes utiles. Vous pouvez partir quand vous voulez.</p>
+    <div class="actions">
+      <a class="btn" href="https://t.me/investirBRVM">Rejoindre @investirBRVM</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="enveloppe">
-    <p>Ce site et le canal Telegram associé ont une vocation informative et pédagogique. Les contenus publiés ne constituent pas un conseil en investissement personnalisé, ni une recommandation d'achat ou de vente. Investir en bourse comporte un risque de perte en capital.</p>
-    <p>Pour toute opération, adressez-vous à une Société de Gestion et d'Intermédiation (SGI) agréée par l'AMF-UMOA.</p>
-    <p>Bourse et Investissement BRVM · Dakar</p>
+  <div class="wrap">
+    <p><strong>Avertissement.</strong> Ce site et le canal Telegram associé ont une vocation exclusivement informative et pédagogique. Ils ne constituent ni un démarchage financier, ni une offre de service d'investissement, ni une recommandation personnalisée. Investir en bourse comporte un risque de perte en capital.</p>
+    <p>Bourse &amp; Investissement BRVM — <a href="https://t.me/investirBRVM">t.me/investirBRVM</a></p>
   </div>
 </footer>
 
