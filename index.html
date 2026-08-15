@@ -198,6 +198,14 @@ h1 i{font-style:normal;color:var(--or)}
   text-decoration:none;border-bottom:1px solid var(--trait);
 }
 .lien-sec:hover{color:var(--encre);border-color:var(--or)}
+     /* --- Acces rapides --- */
+     .acces{background:var(--papier);border-bottom:1px solid var(--trait);padding:26px 20px}
+     .acces .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+     .acces a{display:block;padding:18px 20px;border:1px solid var(--trait);border-left:3px solid var(--or);background:#fff;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+     .acces a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(18,38,63,.10)}
+     .acces .tag{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:7px}
+     .acces .titre{display:block;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.015em;color:var(--encre);margin-bottom:5px}
+     .acces .desc{display:block;font-size:13.5px;color:var(--gris);line-height:1.45}
 
 /* ── Sections ──────────────────────────────────────────── */
 section{padding:58px 0;border-bottom:1px solid var(--trait)}
@@ -345,6 +353,26 @@ footer a{color:var(--gris)}
     </div>
   </div>
 </header>
+
+     <section class="acces">
+          <div class="wrap">
+               <a href="/marche/">
+                    <span class="tag">Chaque soir de cotation</span>
+                    <span class="titre">Le point quotidien du marché</span>
+                    <span class="desc">Indices, valeur transigée, volumes et palmarès de la séance, repris du Bulletin Officiel de la Cote.</span>
+               </a>
+               <a href="/sgi-senegal/">
+                    <span class="tag">Par où commencer</span>
+                    <span class="titre">Les SGI agréées au Sénégal</span>
+                    <span class="desc">La liste officielle des six sociétés habilitées à transmettre vos ordres, et comment choisir la vôtre.</span>
+               </a>
+               <a href="/a-propos/">
+                    <span class="tag">Transparence</span>
+                    <span class="titre">Qui écrit, et d'où viennent les chiffres</span>
+                    <span class="desc">La méthode, les sources, et ce que ce site ne fait pas.</span>
+               </a>
+          </div>
+     </section>
 
 <section>
   <div class="wrap">
