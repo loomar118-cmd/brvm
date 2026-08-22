@@ -9,6 +9,28 @@
   gtag('js', new Date());
   gtag('config', 'AW-18389495833');
 </script>
+
+<!-- Google Ads : conversion « Clic vers Telegram » -->
+<script>
+(function () {
+  var ENVOI_VERS = 'AW-18389495833/a8m-CIrQ_-UcEJng5cBE';
+  document.addEventListener('click', function (e) {
+    var lien = e.target && e.target.closest ? e.target.closest('a[href*="t.me/"]') : null;
+    if (!lien) return;
+    if (typeof gtag !== 'function') return;
+    var destination = lien.href;
+    if (lien.target === '_blank' || e.metaKey || e.ctrlKey) {
+      gtag('event', 'conversion', { send_to: ENVOI_VERS });
+      return;
+    }
+    e.preventDefault();
+    var parti = false;
+    var aller = function () { if (parti) return; parti = true; window.location = destination; };
+    gtag('event', 'conversion', { send_to: ENVOI_VERS, event_callback: aller });
+    setTimeout(aller, 1200);
+  });
+})();
+</script>
      <meta name="google-site-verification" content="iIX77kbG8yAxutFpLpNEsc_p-xiGsKy_8wuzcdks-74" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
